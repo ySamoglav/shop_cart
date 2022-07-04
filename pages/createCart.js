@@ -11,7 +11,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-export default function createCart() {
+export default function CreateCart() {
   const user = useContext(UserContext);
   return <main>{user ? <UserCanCreate /> : <UserCannotCreate />}</main>;
 }

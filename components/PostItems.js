@@ -62,7 +62,7 @@ function PostItem({ item, room, deleteItem }) {
           <BsFillCaretRightFill size={35} onClick={() => upperItemQuantity()} />
         </div>
       </div>
-      <button classname="btn-red" onClick={() => deleteItem(item.itemName)}>
+      <button className="btn-red" onClick={() => deleteItem(item.itemName)}>
         Remove item
       </button>
     </div>

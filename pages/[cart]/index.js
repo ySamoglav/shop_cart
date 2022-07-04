@@ -103,7 +103,7 @@ export default function Home(props) {
                 onChange={(e) => setItemValue(e.target.value)}
               ></input>
 
-              <div class="buttonRow">
+              <div className="buttonRow">
                 <button type="submit" className="btn-green">
                   ADD
                 </button>

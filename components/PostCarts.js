@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function PostCarts({ carts }) {
-  return carts ? carts.map((cart) => <PostCart cart={cart} />) : null;
+  return carts ? carts.map((cart, idx) => <PostCart key={idx} cart={cart} />) : null;
 }
 
 function PostCart({ cart }) {
