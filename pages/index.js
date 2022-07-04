@@ -1,10 +1,9 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+
 import { collection, getDocs } from "firebase/firestore";
-import { dbFire, postToJSON } from "../lib/firebase"
+import { dbFire} from "../lib/firebase"
 import PostCarts from '../components/PostCarts';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   
   const cartQuery = await getDocs(collection(dbFire, "carts"));
