@@ -22,6 +22,7 @@ export default function Home(props) {
     <main>
       <div className="main-Page-Heading">
           <h2> 🛒 Shopping Lists 🛒 </h2>
+          
       </div>
       <PostCarts carts={props.carts} />
     </main>
