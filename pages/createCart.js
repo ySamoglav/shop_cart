@@ -32,7 +32,8 @@ function UserCanCreate() {
       ownerID: user.uid,
       password: passValue,
     });
-    
+    setNameValue("");
+    setPassValue("");
     setCreatedRoom(true);
   };
 

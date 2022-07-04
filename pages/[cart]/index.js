@@ -40,6 +40,7 @@ export default function Home(props) {
     if (pass == props.roomData.password) {
       setMatch(true);
     }
+    setPass("");
     setSubmit(true);
   };
 
@@ -53,6 +54,7 @@ export default function Home(props) {
     }
     const newDocRef = await addItem(room, inputValueItem);
     setItems(await getRoomItems(room));
+    setItemValue("");
   };
 
   useEffect(() => {
