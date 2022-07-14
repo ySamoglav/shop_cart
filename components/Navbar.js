@@ -43,7 +43,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="/enter">
-                <button className="btn-blue">Log in</button>
+                <button>Log in</button>
               </Link>
             </li>
           </>

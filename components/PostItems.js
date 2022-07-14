@@ -7,17 +7,22 @@ import {
 } from "react-icons/bs";
 import { updateCompletion, updateQuantity } from "../lib/firebase";
 export default function PostItems(props) {
-  const { items } = props;
-  return items.items
-    ? items.items.map((item, idx) => (
-        <PostItem
-          key={idx}
-          item={item}
-          room={items.room}
-          deleteItem={items.deleteItem}
-        />
-      ))
-    : null;
+  return (
+    <div className="itemList">
+      <>
+        {props.items
+          ? props.items.map((item) => (
+              <PostItem
+                key={item.id}
+                item={item}
+                room={props.room}
+                deleteItem={props.deleteItem}
+              />
+            ))
+          : null}
+      </>
+    </div>
+  );
 }
 
 function PostItem({ item, room, deleteItem }) {
@@ -41,28 +46,31 @@ function PostItem({ item, room, deleteItem }) {
   };
 
   return (
-    <div className="item">
-      <div>
+    <div className="itemContainer">
+      <>
         {complete ? (
           <>
-            <BsFillCheckSquareFill size={35} onClick={() => toggleComplete()} />
+            <BsFillCheckSquareFill size={35} className="comp-icon" onClick={() => toggleComplete()} />
             <div className="completed">
               <h1>{item.itemName}</h1>
             </div>
           </>
         ) : (
           <>
-            <BsFillSquareFill size={35} onClick={() => toggleComplete()} />
+            <BsFillSquareFill size={35} className="comp-icon" onClick={() => toggleComplete()} />
             <h1>{item.itemName}</h1>
           </>
         )}
-        <div className="quantity">
-          <BsFillCaretLeftFill size={35} onClick={() => lowerItemQuantity()} />
-          <a>{quantity}</a>
-          <BsFillCaretRightFill size={35} onClick={() => upperItemQuantity()} />
-        </div>
+      </>
+      <div className="quantity">
+        <BsFillCaretLeftFill size={35} className="quan-icon" onClick={() => lowerItemQuantity()} />
+        <a>{quantity}</a>
+        <BsFillCaretRightFill size={35} className="quan-icon" onClick={() => upperItemQuantity()} />
       </div>
-      <button className="btn-red" onClick={() => deleteItem(item.itemName)}>
+      <button
+        className="btn-red-item"
+        onClick={() => deleteItem(item.itemName)}
+      >
         Remove item
       </button>
     </div>

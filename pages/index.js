@@ -20,9 +20,8 @@ export async function getServerSideProps() {
 export default function Home(props) {
   return (
     <main>
-      <div className="main-Page-Heading">
+      <div>
           <h2> 🛒 Shopping Lists 🛒 </h2>
-          
       </div>
       <PostCarts carts={props.carts} />
     </main>

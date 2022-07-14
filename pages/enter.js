@@ -8,6 +8,7 @@ export default function Enter(props) {
   return <main>{user ? <SignOutButton /> : <SignInButton /> }</main>;
 }
 
+
 function SignInButton() {
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, provider)

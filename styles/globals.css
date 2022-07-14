@@ -2,18 +2,20 @@
 
 :root {
   --color-bg: #eef0f1;
-  --color-text: #08090a;
+  --color-text: #ffffff;
   --color-blue: #3b49df;
   --color-red: #df3b3b;
   --color-green: #3bdf72;
-  --color-gray: #b5bdc4;
+  --color-gray: #19191b;
+  --color-black: #0e0d0d;
+  --color-light-gray: #19191b4e;
 }
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: 'Noto Sans', sans-serif;
-  background-color: var(--color-bg);
+  background-color: #1d1e1f;
   color: var(--color-text);
   margin-top: 50px;
 }
@@ -50,22 +52,13 @@ input {
   padding: 5px 10px;
 }
 
-fieldset {
-  border: none;
-  padding: 1rem 0;
-  font-size: 1.25rem;
-}
-
-code {
-  overflow-x: scroll;
-}
 
 /* Navbar */
 
 .navbar {
   height: 70px;
   width: 100%;
-  background: white;
+  background: rgb(13,23,33);
   color: var(--colors-text);
   position: fixed;
   top: 0;
@@ -73,6 +66,7 @@ code {
   font-weight: bold;
   border-bottom: 1px solid var(--color-gray);
   z-index: 99;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%) 
 }
 
 .navbar ul {
@@ -86,27 +80,25 @@ code {
 }
 
 .navbar img {
-  border-radius: 50%;
+  border-radius: 75%;
   width: 75px;
   height: 60px;
-  cursor: pointer;
 }
 
 .navbar li {
   border-radius: 50%;
-  
+  box-shadow: #eef0f1;
 }
 
 /* Buttons */
 
 .buttonRow{
-  column-count: 2;
-
+  display: flex;
+  justify-content: flex-start;
 }
 
 .btn, button {
   background-color: var(--color-gray);
-  border: none;
   color: var(--color-text);
   padding: 1rem 2rem;
   display: flex;
@@ -117,8 +109,12 @@ code {
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
   border-radius: 0.25rem;
+  border-color: black;
   cursor: pointer;
   margin: 0.5rem 1rem 0.5rem 0;
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -131,6 +127,7 @@ code {
 
 button:hover {
   filter: brightness(90%);
+  background-color:#1d2a35
 }
 
 button:disabled,
@@ -139,25 +136,33 @@ button[disabled]{
   cursor: not-allowed;
 }
 
-button.btn-blue {
-  background-color: var(--color-blue);
-  color: white;
-}
-
 button.btn-red {
   background-color: var(--color-red);
   color: white;
-  float: right;
+}
+button.btn-red-item{
+  background-color: var(--color-red);
+  color: white;
+  margin: 0;
 }
 
+button.btn-red-remList{
+  background-color: var(--color-red);
+  color: white;
+  margin-left: auto;
+  margin-right: 0;
+  align-self: start;
+}
 button.btn-green {
   background-color: var(--color-green);
   color: white;
 }
 
 button.btn-google {
-  background-color: white;
+  background-color: black;
   color: var(--color-text);
+  border: 1px solid var(--color-gray);
+  border-radius: 8px; 
 }
 
 .btn-google img {
@@ -165,44 +170,56 @@ button.btn-google {
   margin-right: 10px;
 }
 
-button.btn-logo {
-  background-color: var(--color-text);
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-}
-
 .delButton {
   align-items: right;
 }
+
+
 
 /* Items */
 
 .cart {
   padding: 2rem;
   margin: 1rem 0;
-  background-color: white;
-  border: 1px solid var(--color-gray);
-  border-radius: 8px; 
+  background-color: var(--color-black);
+  border: 1px solid var(--color-bg);
+  border-radius: 8px;
 }
 
-.item {
-  padding: 2rem;
-  margin: 1rem 0;
-  background-color: white;
+.cart:hover{
+  filter: brightness(90%);
+}
+
+.itemContainer {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: rgb(13,23,33);
   border: 1px solid var(--color-gray);
   border-radius: 8px;
-  column-count: 4
+  padding: 2rem;
+  margin: 1rem 0;
 }
 
+.quan-icon{
+  margin-bottom: -5px;
+  cursor: pointer;
+}
+
+.comp-icon{
+  cursor: pointer;
+}
 
 /* Utilities */
 
 .push-left {
   margin-left: auto;
 }
-
+.push-right{
+  margin-right: auto;
+}
 .text-sm {
   font-size: 0.85rem;
 }
@@ -220,18 +237,6 @@ button.btn-logo {
 .text-info {
   font-weight: bold;
   color: var(--color-blue);
-}
-
-.box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.box-center {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  text-align: center;
 }
 
 .hidden { display:  none; }
